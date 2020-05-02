@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import { SmurfsContext } from "../contexts/SmurfsContexts";
+//use setsmurf from SC to send data--- use handlechanges with spread to setnewSmurf, onsub....use setsmurf to send newsmurf
 export default function AddSmurfForm() {
   const [newSmurf, SetNewSmurf] = useState({
     name: "",
