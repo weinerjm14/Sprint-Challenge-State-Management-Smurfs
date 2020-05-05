@@ -11,17 +11,25 @@ export default function AddSmurfForm() {
     height: "",
   });
   const postData = e => {
-    e.preventdefault();
-    setSmurfs({
-      ...smurfs,
-      newSmurf,
-    });
+    e.preventDefault();
+    // setSmurfs({
+    //   ...smurfs,
+    //   newSmurf,
+    // });
     console.log(smurfs);
-    // axios
-    //   .post("http://localhost:3333/smurfs", { ...newSmurf })
-    //   .then(response => console.log("post", response))
-    //   .catch(error => console.log("post", error));
-    return false;
+    axios
+      .post("http://localhost:3333/smurfs", { ...newSmurf })
+      .then(response => console.log("post", response))
+      .catch(error => console.log("post", error));
+
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(response => {
+        setSmurfs(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   const handleChanges = e => {

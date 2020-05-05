@@ -4,6 +4,7 @@ import { SmurfsContext } from "../contexts/SmurfsContexts";
 
 export default function SmurfList() {
   const { smurfs } = useContext(SmurfsContext);
+  console.log("slist", smurfs);
   return (
     <div className="smurf-card">
       {smurfs.map(smurf => {
